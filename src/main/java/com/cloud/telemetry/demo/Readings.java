@@ -16,6 +16,7 @@ import java.sql.Timestamp;
 @EqualsAndHashCode
 public class Readings implements Serializable {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
