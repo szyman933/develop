@@ -8,13 +8,12 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Repository
-public interface UnitRepo extends JpaRepository<Units, Long> {
+public interface RequestTypeRepo extends JpaRepository<RequestType,Long> {
 
 
     @Transactional
-    @Query(value = "SELECT * FROM unit", nativeQuery = true)
-    List<Units> getUnits();
-
+    @Query(value = "SELECT * FROM request_type", nativeQuery = true)
+    List<RequestType> getAllTypeReq();
 
 
 }
