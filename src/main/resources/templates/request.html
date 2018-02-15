@@ -83,24 +83,38 @@
       <form method="POST" action="/addRequest">
         <table>
           <tr>
-            <td><label path="unit_net_ident">unit_net_ident</label></td>
-            <td><input name="unit_net_ident" /></td>
+            <td><label path="unit_net_ident">Numer urzadzenia</label></td>
+            <td>
+            <select name="unit_net_ident">
+              <option  th:each="listaUnitow : ${listaUnitow}"  th:value="${listaUnitow.NetIdent}"  th:label="${listaUnitow.NetIdent}" ></option>
+            </select>
+            </td>
           </tr>
           <tr>
-            <td><label path="request_type">request_type</label></td>
-            <td><input name="request_type" /></td>
+            <td><label path="request_type">Polecenie</label></td>
+            <td>
+              <select name="request_type">
+              <option  th:each="listaTypow : ${listaTypow}"  th:value="${listaTypow.id}"  th:label="${listaTypow.Request}" ></option>
+            </select>
+            </td>
           </tr>
           <tr>
-            <td><label path="unit_input_id">unit_input_id</label></td>
+            <td><label path="unit_input_id">Numer wejścia</label></td>
             <td><input name="unit_input_id" /></td>
           </tr>
           <tr>
-            <td><label path="value">value</label></td>
-            <td><input name="value" /></td>
+            <td><label path="value">Wartość</label></td>
+            <td><select name="value">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="15">15</option>
+            </select></td>
           </tr>
           <tr>
             <td colspan="2">
-              <input type="submit" value="Submit"/>
+              <input type="submit" value="Wyslij" />
             </td>
           </tr>
         </table>
