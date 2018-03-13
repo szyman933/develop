@@ -21,12 +21,18 @@ public class IndexController {
     public String index(Model model) {
 
         List<Readings> readingsList = readingsRepo.getLatestTenCorrect();
-        List<Integer> dane = new ArrayList();
-        dane.add(1);
-        dane.add(2);
-        dane.add(3);
+        List<Integer> dane = new ArrayList(); //lista na wartosci odczytu
+        List<String> opisy = new ArrayList();//lista na daty odczytu
+
+        //petla iteracyjna wypelniająca modele danymi
+        for (Readings readings : readingsList) {
+            dane.add(readings.getValue());
+            opisy.add(readings.getReadDate().toString());
+        }
+
         model.addAttribute("lista", readingsList);
-        model.addAttribute("wykres", dane);
+        model.addAttribute("dane", dane);
+        model.addAttribute("opisy", opisy);
 
         return "index";
     }
