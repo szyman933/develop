@@ -18,5 +18,8 @@ public interface ReadingsRepo extends JpaRepository <Readings, Long> {
     @Query(value = "SELECT * FROM readings ORDER BY id desc LIMIT 10", nativeQuery = true)
     List<Readings> getLatestTen();
 
+    @Transactional
+    @Query(value = "SELECT * FROM readings where value <> 99 ORDER BY id desc LIMIT 10", nativeQuery = true)
+    List<Readings> getLatestTenCorrect();
 
 }
