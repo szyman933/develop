@@ -22,4 +22,9 @@ public interface ReadingsRepo extends JpaRepository <Readings, Long> {
     @Query(value = "SELECT * FROM readings where value <> 99 ORDER BY id desc LIMIT 10", nativeQuery = true)
     List<Readings> getLatestTenCorrect();
 
+
+    @Transactional
+    @Query("SELECT r FROM Readings r WHERE r.UnitId = :unit_id AND r.UnitInputId = :unit_input_id")
+    List<Readings> getReadByUnitAndInput(@Param("unit_id") Integer unit_id, @Param("unit_input_id") Integer unit_input_id);
+
 }

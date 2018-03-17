@@ -16,8 +16,14 @@ public interface UnitInputRepo extends JpaRepository<UnitInput, Long> {
     List<UnitInput> getByInput(@Param("input_number") Integer input_number);
     //zapytanie parametryczne do bazy o konkretne wejscia danego urzadzenia
     // w zapytaniu to nie jest nazwa tabeli a nazwa klasy entity odnoszacej sie do danej tabeli
+
     @Transactional
     @Query("SELECT r FROM UnitInput r WHERE r.UnitNetIdent = :unit_net_ident")
     List<UnitInput> getByUnit(@Param("unit_net_ident") Integer unit_net_ident);
+
+    @Transactional
+    @Query("SELECT r FROM UnitInput r WHERE r.UnitNetIdent = :unit_net_ident AND r.InputNumber = :input_number")
+    List<UnitInput> getByUnitAndInput(@Param("unit_net_ident") Integer unit_net_ident, @Param("input_number") Integer input_number);
+
 
 }
