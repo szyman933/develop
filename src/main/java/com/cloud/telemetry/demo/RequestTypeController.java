@@ -67,7 +67,7 @@ public class RequestTypeController {
         List<Units> unity = unitRepo.getUnits();
         model.addAttribute("listaUnitow", unity);
 
-        return new ModelAndView("request", "command", new NewRequest());
+        return new ModelAndView("redirect:/request", "command", new NewRequest());
     }
 
 

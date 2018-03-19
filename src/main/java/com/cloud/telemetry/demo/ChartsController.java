@@ -80,9 +80,6 @@ public class ChartsController {
 
             return new ModelAndView("charts", "command", new Chart());
 
-
-
-
     }
 
 
