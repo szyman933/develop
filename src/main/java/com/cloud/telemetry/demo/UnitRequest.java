@@ -36,6 +36,7 @@ public class UnitRequest implements Serializable {
     @Column(name = "value")
     private Integer Value;
 
-
+    @Column(name = "register")
+    private Integer Register;
 
 }

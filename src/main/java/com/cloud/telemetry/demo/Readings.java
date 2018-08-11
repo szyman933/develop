@@ -1,10 +1,8 @@
 package com.cloud.telemetry.demo;
 
 import lombok.*;
-
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Date;
 import java.sql.Timestamp;
 
 @Entity
@@ -15,7 +13,6 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @EqualsAndHashCode
 public class Readings implements Serializable {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,5 +30,7 @@ public class Readings implements Serializable {
     @Column(name = "read_date")
     private Timestamp ReadDate;
 
+    @Column(name = "param_id")
+    private Integer Param_id;
 
 }

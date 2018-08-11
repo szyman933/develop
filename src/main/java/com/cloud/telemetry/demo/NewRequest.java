@@ -16,5 +16,6 @@ public class NewRequest {
     Timestamp regdate;
     int unit_input_id;
     int value;
+    int register;
 
 }

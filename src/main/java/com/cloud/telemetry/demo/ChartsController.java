@@ -74,7 +74,7 @@ public class ChartsController {
             model.addAttribute("dane", dane);
             model.addAttribute("opisy", opisy);
 
-            //napelnienie listy unitow
+            //napelnienie listy unitow od nowa zeby nie musiec przeladowywac strony zeby wybrac inny modul
             List<UnitInput> unit_input2 = unitInputRepo.findAll();
             model.addAttribute("listaUnitInput", unit_input2);
 

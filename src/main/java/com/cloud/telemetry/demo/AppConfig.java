@@ -19,9 +19,12 @@ public class AppConfig {
         ret.setUsername("daniel");
         ret.setPassword("daniel");
         ret.setUrl("jdbc:mysql://192.168.1.112:3306/daniel?autoReconnect=true&useSSL=false");
-       // ret.setUrl("jdbc:mysql://127.0.0.1:13306/daniel?autoReconnect=true&useSSL=false");
+
         return ret;
     }
+
+
+
 
 
 }

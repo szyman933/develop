@@ -3,8 +3,6 @@ package com.cloud.telemetry.demo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -40,8 +38,6 @@ public class RequestTypeController {
         return new ModelAndView("request", "command", new NewRequest());
 }
 
-
-
     @RequestMapping(value = "/addRequest", method={RequestMethod.POST, RequestMethod.GET})
     public ModelAndView addRequest(Model model,NewRequest polecenie) {
 
@@ -55,6 +51,7 @@ public class RequestTypeController {
         r.setRegDate(timestamp);
         r.setUnit_input_id(polecenie.unit_input_id);
         r.setValue(polecenie.value);
+        r.setRegister(polecenie.register);
         unitRequestRepo.saveAndFlush(r); //zapis do bazy
 
         //przekierowanie  na strone request i wypełnienie modelu danymi potrzebnymi na stronie

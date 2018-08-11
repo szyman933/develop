@@ -76,10 +76,10 @@
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
       <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom" ></div>
-        <h1 class="h2">Polecenia sterujace</h1>
+        <h1 class="h1">Polecenia sterujace</h1>
 
       <br/>
-      <h3>Wyslij polecenie</h3>
+      <h3>Wyślij polecenie</h3>
       <form method="POST" action="/addRequest">
         <table>
           <tr>
@@ -101,6 +101,10 @@
           <tr>
             <td><label path="unit_input_id">Numer wejścia</label></td>
             <td><input name="unit_input_id" /></td>
+          </tr>
+          <tr>
+            <td><label path="register">Rejestr</label></td>
+            <td><input name="register" /></td>
           </tr>
           <tr>
             <td><label path="value">Wartość</label></td>
@@ -132,6 +136,7 @@
             <th>Data wyslania</th>
             <th>Numer wejscia</th>
             <th>Wartość</th>
+            <th>Rejestr</th>
           </tr>
           </thead>
           <tbody>
@@ -143,6 +148,7 @@
             <td th:text="${listaRequestow.SendDate}"></td>
             <td th:text="${listaRequestow.unit_input_id}"></td>
             <td th:text="${listaRequestow.Value}"></td>
+            <td th:text="${listaRequestow.Register}"></td>
 
           </tr>
           </tbody>
