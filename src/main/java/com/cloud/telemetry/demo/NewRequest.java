@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.Null;
 import java.sql.Timestamp;
 
 @NoArgsConstructor
@@ -19,3 +20,4 @@ public class NewRequest {
     int register;
 
 }
+

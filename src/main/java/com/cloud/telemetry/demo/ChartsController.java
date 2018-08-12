@@ -29,8 +29,8 @@ public class ChartsController {
     public ModelAndView charts(Model model) {
 
         //wypenienie listy dostepnych urządzen
-        List<UnitInput> unit_input = unitInputRepo.findAll();
-        model.addAttribute("listaUnitInput", unit_input);
+        List<Units> units = unitRepo.findAll();
+        model.addAttribute("listaUnit", units);
         return new ModelAndView("charts", "command", new Chart());
     }
 
@@ -39,9 +39,10 @@ public class ChartsController {
     public ModelAndView charts(Model model,Chart wybor) {
 
         //wypelnienie listy wejsc wybranego urzadzenia
-        modul = wybor.unit_net_ident;
-        List<UnitInput> wejscia = unitInputRepo.getByUnit(wybor.unit_net_ident);
-        model.addAttribute("listaUnitInput", wejscia);
+        modul = wybor.net_ident;
+        List<UnitInput> wejscia = unitInputRepo.getByUnit(wybor.net_ident);
+        List<Units> units = unitRepo.getByUnit(modul);
+        model.addAttribute("listaUnit", units);
         model.addAttribute("listaInput", wejscia);
 
         return new ModelAndView("charts", "command", new Chart());
@@ -75,8 +76,8 @@ public class ChartsController {
             model.addAttribute("opisy", opisy);
 
             //napelnienie listy unitow od nowa zeby nie musiec przeladowywac strony zeby wybrac inny modul
-            List<UnitInput> unit_input2 = unitInputRepo.findAll();
-            model.addAttribute("listaUnitInput", unit_input2);
+             List<Units> units = unitRepo.findAll();
+             model.addAttribute("listaUnit", units);
 
             return new ModelAndView("charts", "command", new Chart());
 

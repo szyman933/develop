@@ -12,6 +12,7 @@ public class Chart {
 
     Integer unit_net_ident;
     Integer input_number;
+    Integer net_ident;
     Timestamp datedown;
     Timestamp dateup;
 }

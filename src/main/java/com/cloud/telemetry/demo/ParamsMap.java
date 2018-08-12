@@ -30,7 +30,7 @@ public class ParamsMap implements Serializable {
     private Integer Index;
 
     @Column(name = "active")
-    private Character Active;
+    private String Active;
 
 
 

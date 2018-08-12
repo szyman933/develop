@@ -3,10 +3,13 @@ package com.cloud.telemetry.demo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -38,9 +41,9 @@ public class RequestTypeController {
         return new ModelAndView("request", "command", new NewRequest());
 }
 
-    @RequestMapping(value = "/addRequest", method={RequestMethod.POST, RequestMethod.GET})
-    public ModelAndView addRequest(Model model,NewRequest polecenie) {
-
+    @RequestMapping(value = "/addRequest", method={RequestMethod.POST})
+    public ModelAndView addRequest(Model model, @Validated NewRequest polecenie, BindingResult bindingResult ) {
+    //dodanie Validated rozwiazalo problem pustych pol
 
         Timestamp timestamp = new Timestamp(System.currentTimeMillis()); //generowany czas wpisania requestu do bazy
 

@@ -23,7 +23,7 @@ public class Units implements Serializable {
     private Integer UnitType;
 
     @Column(name = "net_ident")
-    private Integer NetIdent;
+    public Integer NetIdent;
 
     @Column(name = "reg_date")
     private Timestamp RegDate;
