@@ -24,7 +24,7 @@ public class ParamsMap implements Serializable {
     private Integer UnitInputId;
 
     @Column(name = "rw")
-    private Character RW;
+    private String RW;
 
     @Column(name = "index")
     private Integer Index;
@@ -32,7 +32,8 @@ public class ParamsMap implements Serializable {
     @Column(name = "active")
     private String Active;
 
-
+    @Column(name = "description")
+    private String Description;
 
 
 }
