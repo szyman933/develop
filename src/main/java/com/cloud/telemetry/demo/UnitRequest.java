@@ -19,24 +19,24 @@ public class UnitRequest implements Serializable {
     private Long id;
 
     @Column(name = "unit_net_ident")
-    private Integer UnitNetIdent;
+    private Integer unitNetIdent;
 
     @Column(name = "request_type")
-    private Integer RequestType;
+    private Integer requestType;
 
     @Column(name = "reg_date")
-    private Timestamp RegDate;
+    private Timestamp regDate;
 
     @Column(name = "send_date")
-    private Timestamp SendDate;
+    private Timestamp sendDate;
 
     @Column(name = "unit_input_id")
-    private Integer unit_input_id;
+    private Integer unitInputId;
 
     @Column(name = "value")
-    private Integer Value;
+    private Integer value;
 
     @Column(name = "register")
-    private Integer Register;
+    private Integer register;
 
 }

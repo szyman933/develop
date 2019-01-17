@@ -9,18 +9,18 @@ import lombok.Setter;
 @Getter
 public class NewRegister {
 
-    Long id;
+    private Long id;
 
-    int input_device_id;
+    private int input_device_id;
 
-    int unit_input_id;
+    private int unit_input_id;
 
-    String rw;
+    private String rw;
 
-    int index;
+    private int index;
 
-    String active;
+    private String active;
 
-    String description;
+    private String description;
 
 }

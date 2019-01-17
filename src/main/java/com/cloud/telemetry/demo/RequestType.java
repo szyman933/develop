@@ -12,14 +12,14 @@ import java.io.Serializable;
 @ToString
 @NoArgsConstructor
 @EqualsAndHashCode
-public class RequestType implements Serializable {
+class RequestType implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name = "request")
-    private String Request;
+    private String request;
 
 
 }

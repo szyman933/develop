@@ -6,13 +6,13 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 @Entity
-@Table( name = "readings")
 @Setter
 @Getter
+@Table( name = "readings")
 @ToString
 @NoArgsConstructor
 @EqualsAndHashCode
-public class Readings implements Serializable {
+class Readings implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

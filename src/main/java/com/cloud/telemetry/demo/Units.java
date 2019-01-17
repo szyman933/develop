@@ -12,7 +12,7 @@ import java.sql.Timestamp;
 @ToString
 @NoArgsConstructor
 @EqualsAndHashCode
-public class Units implements Serializable {
+ class Units implements Serializable {
 
 
     @Id
@@ -20,13 +20,13 @@ public class Units implements Serializable {
     private Long id;
 
     @Column(name = "unit_type")
-    private Integer UnitType;
+    private Integer unitType;
 
     @Column(name = "net_ident")
-    public Integer NetIdent;
+    public Integer netIdent;
 
     @Column(name = "reg_date")
-    private Timestamp RegDate;
+    private Timestamp regDate;
 
 
 }

@@ -1,7 +1,10 @@
 package com.cloud.telemetry.demo;
-import java.io.Serializable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class StatsCalculator implements Serializable {
+class StatsCalculator {
+
+    protected final Logger logger = Logger.getLogger(getClass().getName());
 
     private double freeRAM;
     private double maxRAM;
@@ -35,12 +38,10 @@ public class StatsCalculator implements Serializable {
 
 
     public void printStats() {
-        System.out.println("---------------------");
-
-        System.out.println("NumCores: " + numCores);
-        System.out.println("FreeRAM: " + freeRAM);
-        System.out.println("Used RAM: " + (maxRAM-freeRAM));
-
-        System.out.println("---------------------");
+        logger.log(Level.INFO,"---------------------");
+        logger.log(Level.INFO,"NumCores: {0} " , numCores);
+        logger.log(Level.INFO,"FreeRAM: {0}" , freeRAM);
+        logger.log(Level.INFO,"Used RAM: {0} " , (maxRAM-freeRAM));
+        logger.log(Level.INFO,"---------------------");
     }
 }

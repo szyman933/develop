@@ -8,14 +8,15 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
-import javax.validation.Valid;
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Controller
 public class RequestTypeController {
 
+    protected final Logger logger = Logger.getLogger(getClass().getName());
 
     @Autowired
     RequestTypeRepo requestTypeRepo;
@@ -43,7 +44,7 @@ public class RequestTypeController {
 
     @RequestMapping(value = "/addRequest", method={RequestMethod.POST})
     public ModelAndView addRequest(Model model, @Validated NewRequest polecenie, BindingResult bindingResult ) {
-    //dodanie Validated rozwiazalo problem pustych pol
+
 
         Timestamp timestamp = new Timestamp(System.currentTimeMillis()); //generowany czas wpisania requestu do bazy
 
@@ -52,9 +53,10 @@ public class RequestTypeController {
         r.setUnitNetIdent(polecenie.unit_net_ident);
         r.setRequestType(polecenie.request_type);
         r.setRegDate(timestamp);
-        r.setUnit_input_id(polecenie.unit_input_id);
+        r.setUnitInputId(polecenie.unit_input_id);
         r.setValue(polecenie.value);
         r.setRegister(polecenie.register);
+        logger.log(Level.INFO,"Add new request : {0}",r);
         unitRequestRepo.saveAndFlush(r); //zapis do bazy
 
         //przekierowanie  na strone request i wypełnienie modelu danymi potrzebnymi na stronie

@@ -17,7 +17,7 @@ public interface UnitRepo extends JpaRepository<Units, Long> {
     List<Units> getUnits();
 
     @Transactional
-    @Query("SELECT r FROM Units r WHERE r.NetIdent = :net_ident")
-    List<Units> getByUnit(@Param("net_ident") Integer net_ident);
+    @Query("SELECT r FROM Units r WHERE r.netIdent = :netIdent")
+    List<Units> getByUnit(@Param("netIdent") Integer netIdent);
 
 }

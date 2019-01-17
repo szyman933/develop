@@ -12,7 +12,7 @@ import java.util.List;
 public class UnitsController {
 
     @Autowired
-    UnitRepo unitRepo;
+    private UnitRepo unitRepo;
 
     @RequestMapping("/units")
     public String index(Model model) {
