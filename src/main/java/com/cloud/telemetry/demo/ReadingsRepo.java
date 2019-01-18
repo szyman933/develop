@@ -24,7 +24,7 @@ public interface ReadingsRepo extends JpaRepository <Readings, Long> {
 
 
     @Transactional
-    @Query("SELECT r FROM Readings r WHERE r.UnitId = :unit_id AND r.UnitInputId = :unit_input_id")
-    List<Readings> getReadByUnitAndInput(@Param("unit_id") Integer unit_id, @Param("unit_input_id") Integer unit_input_id);
+    @Query("SELECT r FROM Readings r WHERE r.UnitId = :unit_id AND r.UnitInputId = :unitInputId")
+    List<Readings> getReadByUnitAndInput(@Param("unit_id") Integer unit_id, @Param("unitInputId") Integer unit_input_id);
 
 }

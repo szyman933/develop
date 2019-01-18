@@ -18,10 +18,10 @@ public class UnitRequest implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "unit_net_ident")
+    @Column(name = "unitNetIdent")
     private Integer unitNetIdent;
 
-    @Column(name = "request_type")
+    @Column(name = "requestType")
     private Integer requestType;
 
     @Column(name = "reg_date")
@@ -38,5 +38,7 @@ public class UnitRequest implements Serializable {
 
     @Column(name = "register")
     private Integer register;
+
+
 
 }

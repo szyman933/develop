@@ -9,6 +9,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -49,12 +50,12 @@ public class RequestTypeController {
 
         UnitRequest r; //wypełnianie nowej instancji encji UnitRequest
         r = new UnitRequest();
-        r.setUnitNetIdent(polecenie.unit_net_ident);
-        r.setRequestType(polecenie.request_type);
+        r.setUnitNetIdent(polecenie.getUnitNetIdent());
+        r.setRequestType(polecenie.getRequestType());
         r.setRegDate(timestamp);
-        r.setUnitInputId(polecenie.unit_input_id);
-        r.setValue(polecenie.value);
-        r.setRegister(polecenie.register);
+        r.setUnitInputId(polecenie.getUnitInputId());
+        r.setValue(polecenie.getValue());
+        r.setRegister(polecenie.getRegister());
         log.info("Add new request ".concat(r.toString()));
 
         unitRequestRepo.saveAndFlush(r); //zapis do bazy

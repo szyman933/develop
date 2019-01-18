@@ -41,7 +41,7 @@ public interface ParamsMapRepo  extends JpaRepository<ParamsMap,Long> {
 
     @Transactional
     @Modifying
-    @Query(value = "insert into params_map (id, input_device_id, unit_input_id, rw, `index`, active, description) VALUES(0, ?, ?, ?, ?, ?, ?)",nativeQuery = true)
+    @Query(value = "insert into params_map (id, input_device_id, unitInputId, rw, `index`, active, description) VALUES(0, ?, ?, ?, ?, ?, ?)",nativeQuery = true)
     int insertNewReg(Integer idi, Integer uid, String rw, Integer index, String active, String description);
 
 

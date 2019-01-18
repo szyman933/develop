@@ -83,24 +83,24 @@
       <form id="form" method="POST" action="/addRequest">
         <table>
           <tr>
-            <td><label path="unit_net_ident">Numer urzadzenia</label></td>
+            <td><label path="unitNetIdent">Numer urzadzenia</label></td>
             <td>
-            <select name="unit_net_ident">
+            <select name="unitNetIdent">
               <option  th:each="listaUnitow : ${listaUnitow}"  th:value="${listaUnitow.NetIdent}"  th:label="${listaUnitow.NetIdent}" ></option>
             </select>
             </td>
           </tr>
           <tr>
-            <td><label path="request_type">Polecenie</label></td>
+            <td><label path="requestType">Polecenie</label></td>
             <td>
-              <select name="request_type">
+              <select name="requestType">
               <option  th:each="listaTypow : ${listaTypow}"  th:value="${listaTypow.id}"  th:label="${listaTypow.Request}" ></option>
             </select>
             </td>
           </tr>
           <tr>
-            <td><label path="unit_input_id">Numer wejścia</label></td>
-            <td><input name="unit_input_id" aria-required="false" /></td>
+            <td><label path="unitInputId">Numer wejścia</label></td>
+            <td><input name="unitInputId" aria-required="false" /></td>
           </tr>
           <tr>
             <td><label path="register">Rejestr</label></td>
@@ -145,13 +145,13 @@
           <tbody>
           <tr th:each="listaRequestow : ${listaRequestow}">
 
-            <td th:text="${listaRequestow.UnitNetIdent}">  </td>
-            <td th:text="${listaRequestow.RequestType}">  </td>
-            <td th:text="${listaRequestow.RegDate}"></td>
-            <td th:text="${listaRequestow.SendDate}"></td>
+            <td th:text="${listaRequestow.getUnitNetIdent()}">  </td>
+            <td th:text="${listaRequestow.getRequestType()}">  </td>
+            <td th:text="${listaRequestow.getRegDate()}"></td>
+            <td th:text="${listaRequestow.getSendDate()}"></td>
             <td th:text="${listaRequestow.getUnitInputId()}"></td>
-            <td th:text="${listaRequestow.Value}"></td>
-            <td th:text="${listaRequestow.Register}"></td>
+            <td th:text="${listaRequestow.getValue()}"></td>
+            <td th:text="${listaRequestow.getRegister()}"></td>
 
           </tr>
           </tbody>

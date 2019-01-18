@@ -12,10 +12,10 @@ import java.sql.Timestamp;
 @Getter
 public class NewRequest {
 
-    int unit_net_ident;
-    int request_type;
+    int unitNetIdent;
+    int requestType;
     Timestamp regdate;
-    int unit_input_id;
+    int unitInputId;
     int value;
     int register;
 

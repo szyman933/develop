@@ -20,7 +20,7 @@ public class UnitInput implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "unit_net_ident")
+    @Column(name = "unitNetIdent")
     private Integer UnitNetIdent;
 
     @Column(name = "input_type_id")
