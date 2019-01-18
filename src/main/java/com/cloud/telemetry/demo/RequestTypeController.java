@@ -1,5 +1,6 @@
 package com.cloud.telemetry.demo;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,13 +11,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import java.sql.Timestamp;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
+
+@Slf4j
 @Controller
 public class RequestTypeController {
-
-    protected final Logger logger = Logger.getLogger(getClass().getName());
 
     @Autowired
     RequestTypeRepo requestTypeRepo;
@@ -27,7 +26,7 @@ public class RequestTypeController {
     @Autowired
     UnitRepo unitRepo;
 
-    @RequestMapping( value="/request" , method = RequestMethod.GET)
+    @RequestMapping(value = "/request", method = RequestMethod.GET)
     public ModelAndView req(Model model) {
 
         List<RequestType> requestype = requestTypeRepo.getAllTypeReq();
@@ -40,10 +39,10 @@ public class RequestTypeController {
         model.addAttribute("listaUnitow", unity);
 
         return new ModelAndView("request", "command", new NewRequest());
-}
+    }
 
-    @RequestMapping(value = "/addRequest", method={RequestMethod.POST})
-    public ModelAndView addRequest(Model model, @Validated NewRequest polecenie, BindingResult bindingResult ) {
+    @RequestMapping(value = "/addRequest", method = {RequestMethod.POST})
+    public ModelAndView addRequest(Model model, @Validated NewRequest polecenie, BindingResult bindingResult) {
 
 
         Timestamp timestamp = new Timestamp(System.currentTimeMillis()); //generowany czas wpisania requestu do bazy
@@ -56,7 +55,8 @@ public class RequestTypeController {
         r.setUnitInputId(polecenie.unit_input_id);
         r.setValue(polecenie.value);
         r.setRegister(polecenie.register);
-        logger.log(Level.INFO,"Add new request : {0}",r);
+        log.info("Add new request ".concat(r.toString()));
+
         unitRequestRepo.saveAndFlush(r); //zapis do bazy
 
         //przekierowanie  na strone request i wypełnienie modelu danymi potrzebnymi na stronie
@@ -71,12 +71,6 @@ public class RequestTypeController {
 
         return new ModelAndView("redirect:/request", "command", new NewRequest());
     }
-
-
-
-
-
-
 
 
 }

@@ -2,6 +2,7 @@ package com.cloud.telemetry.demo;
 
 
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,18 +12,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-
 import static java.sql.Types.NULL;
 
 
+
+@Slf4j
 @Controller
 public class ParamsMapController {
 
-    private final static  String PARAMS = "params";
-    protected final Logger logger = Logger.getLogger(getClass().getName());
+    private final static String PARAMS = "params";
+
 
     @Autowired
     ParamsMapRepo paramsMapRepo;
@@ -48,7 +47,7 @@ public class ParamsMapController {
         r.setActive(mapa.getActive());
         r.setIndex(mapa.getIndex());
 
-        logger.log(Level.INFO," Change active parameter: {0} ",r);
+        log.info(" Change active parameter: {0} ".concat(r.toString()));
 
         if (mapa.getIndex() == NULL) {
 
@@ -83,7 +82,7 @@ public class ParamsMapController {
 
         paramsMapRepo.insertNewReg(mapa.getInput_device_id(), mapa.getUnit_input_id(), mapa.getRw(), mapa.getIndex(), mapa.getActive(), mapa.getDescription());
 
-        logger.log(Level.INFO," Adding new register: {0} ",r);
+        log.info("Adding new register:".concat(r.toString()));
 
         //ponowne pobranie aktualnej listy
         List<ParamsMap> parametry = paramsMapRepo.findAll();
