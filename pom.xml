@@ -8,8 +8,8 @@
 	<version>1.0.6-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>demo</name>
-	<description>Demo project for Spring Boot</description>
+	<name>telemetry</name>
+	<description>SmartHome telemetry</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -132,30 +132,6 @@
 		</dependency>
 
 	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
-                <configuration>
-                    <fork>true</fork>
-                    <executable>C:\Program Files\Java\jdk1.8.0_191\bin\javac.exe</executable>
-                </configuration>
-            </plugin>
-		</plugins>
-	</build>
 
 
 </project>

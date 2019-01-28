@@ -20,12 +20,7 @@ public class UnitsController {
         List<Units> unity = unitRepo.getUnits();
         model.addAttribute("listaUnit", unity);
 
-
         return "units";
     }
-
-
-
-
 
 }

@@ -1,18 +1,19 @@
 package com.cloud.telemetry.demo;
 
 import lombok.*;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
 @Entity
-@Table( name = "unit")
+@Table(name = "unit")
 @Setter
 @Getter
 @ToString
 @NoArgsConstructor
 @EqualsAndHashCode
- class Units implements Serializable {
+class Units implements Serializable {
 
 
     @Id
@@ -27,6 +28,5 @@ import java.sql.Timestamp;
 
     @Column(name = "reg_date")
     private Timestamp regDate;
-
 
 }
