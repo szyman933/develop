@@ -10,7 +10,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @Setter
 @Getter
-public class NewRequest {
+class NewRequest {
 
     int unitNetIdent;
     int requestType;

@@ -94,10 +94,10 @@
       <form method="POST" action="/chartunit">
         <table>
           <tr>
-            <td><label path="net_ident">Numer urządzenia</label></td>
+            <td><label path="netIdent">Numer urządzenia</label></td>
             <td>
-              <select name="net_ident">
-                <option  th:each="listaUnit : ${listaUnit}"  th:value="${listaUnit.NetIdent}"  th:label="${listaUnit.NetIdent}" ></option>
+              <select name="netIdent">
+                <option  th:each="listaUnit : ${listaUnit}"  th:value="${listaUnit.getNetIdent()}"  th:label="${listaUnit.getNetIdent()}" ></option>
               </select>
             </td>
           </tr>
@@ -111,10 +111,10 @@
       <form method="POST" action="/chartinput">
         <table>
           <tr>
-            <td><label path="input_number">Numer wejścia</label></td>
+            <td><label path="inputNumber">Numer wejścia</label></td>
             <td>
-              <select name="input_number">
-                <option  th:each="listaInput : ${listaInput}"  th:value="${listaInput.InputNumber}"  th:label="${listaInput.InputNumber}" ></option>
+              <select name="inputNumber">
+                <option  th:each="listaInput : ${listaInput}"  th:value="${listaInput.getInputNumber()}"  th:label="${listaInput.getInputNumber()}" ></option>
               </select>
             </td>
           </tr>
@@ -159,9 +159,9 @@
       var myChart = new Chart(ctx, {
         type: 'line',
         data: {
-          labels: [[${opisy}]],
+          labels: [[${labels}]],
           datasets: [{
-            data: [[${dane}]],
+            data: [[${values}]],
             lineTension: 0,
             backgroundColor: 'transparent',
             borderColor: '#1fb71d',

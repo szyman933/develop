@@ -7,13 +7,13 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 @Getter
-public class NewRegister {
+class NewRegister {
 
     private Long id;
 
-    private int input_device_id;
+    private int inputDeviceId;
 
-    private int unit_input_id;
+    private int unitInputId;
 
     private String rw;
 

@@ -21,7 +21,7 @@ class Readings implements Serializable {
     @Column(name = "unit_id")
     private Integer UnitId;
 
-    @Column(name = "unit_input_id")
+    @Column(name = "unitInputId")
     private Integer UnitInputId;
 
     @Column(name = "value")

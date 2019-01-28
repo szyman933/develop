@@ -8,11 +8,11 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @Setter
 @Getter
-public class Chart {
+class Chart {
 
-    Integer unit_net_ident;
-    Integer input_number;
-    Integer net_ident;
-    Timestamp datedown;
-    Timestamp dateup;
+    private Integer unitNetIdent;
+    private Integer inputNumber;
+    private Integer netIdent;
+    private Timestamp dateDown;
+    private Timestamp dateUp;
 }

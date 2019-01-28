@@ -93,10 +93,10 @@
           </thead>
           <tbody>
           <tr th:each="params : ${params}">
-            <td th:text="${params.RW}">  </td>
-            <td th:text="${params.Index}">  </td>
-            <td th:text="${params.Description}">  </td>
-            <td ><input name="active" type="checkbox" th:checked="${params.Active}" /></td>
+            <td th:text="${params.getRw()}">  </td>
+            <td th:text="${params.getIndex()}">  </td>
+            <td th:text="${params.getDescription()}">  </td>
+            <td ><input name="active" type="checkbox" th:checked="${params.getActive()}" /></td>
 
           </tr>
 
@@ -110,7 +110,7 @@
         <h1 class="h2">Aktywuj/dezaktywuj rejestr</h1>
         <form id="form" method="POST" action="/updateActive">
           <select name="index">
-            <option  th:each="params : ${params}"  th:value="${params.index}"  th:label="${params.index}" ></option></select>
+            <option  th:each="params : ${params}"  th:value="${params.getIndex()}"  th:label="${params.getIndex()}" ></option></select>
           <select name="active" >
             <option value="true">Aktywuj</option>
             <option value="false">Dezaktywuj</option></select>
@@ -122,8 +122,8 @@
         <br/>
         <h1 class="h2">Dodaj nowy rejestr</h1>
         <form  method="POST" action="/addRegister">
-          <input name="input_device_id" hidden="true" value="30" />
-          <input name="unit_input_id" hidden="true"  value="23"  />
+          <input name="inputDeviceId" hidden="true" value="30" />
+          <input name="unitInputId" hidden="true"  value="23"  />
           <label path="index">Rejestr</label>
           <input name="index" required="true" />
           <br/>

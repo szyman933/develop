@@ -1,7 +1,5 @@
 package com.cloud.telemetry.demo;
 
-
-
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 import static java.sql.Types.NULL;
-
 
 
 @Slf4j
@@ -31,9 +28,9 @@ public class ParamsMapController {
     @RequestMapping(value = "/registers", method = {RequestMethod.GET, RequestMethod.POST})
     public String registers(Model model) {
 
-        List<ParamsMap> parametry = paramsMapRepo.findAll();
+        List<ParamsMap> parameters = paramsMapRepo.findAll();
 
-        model.addAttribute(PARAMS, parametry);
+        model.addAttribute(PARAMS, parameters);
 
         return "registers";
     }
@@ -57,7 +54,6 @@ public class ParamsMapController {
             paramsMapRepo.updateActivebyIndexNative(mapa.getActive(), mapa.getIndex());
         }
 
-
         //ponowne pobranie aktualnej listy
         List<ParamsMap> parametry = paramsMapRepo.findAll();
 
@@ -68,26 +64,24 @@ public class ParamsMapController {
 
 
     @RequestMapping(value = "/addRegister", method = {RequestMethod.POST})
-    public ModelAndView addRegister(Model model, NewRegister mapa) {
-
+    public ModelAndView addRegister(Model model, NewRegister map) {
 
         ParamsMap r = new ParamsMap();
-        r.setInputDeviceId(mapa.getInput_device_id());
-        r.setUnitInputId(mapa.getUnit_input_id());
-        r.setRW(mapa.getRw());
-        r.setIndex(mapa.getIndex());
-        r.setActive(mapa.getActive());
-        r.setDescription(mapa.getDescription());
+        r.setInputDeviceId(map.getInputDeviceId());
+        r.setUnitInputId(map.getUnitInputId());
+        r.setRw(map.getRw());
+        r.setIndex(map.getIndex());
+        r.setActive(map.getActive());
+        r.setDescription(map.getDescription());
 
-
-        paramsMapRepo.insertNewReg(mapa.getInput_device_id(), mapa.getUnit_input_id(), mapa.getRw(), mapa.getIndex(), mapa.getActive(), mapa.getDescription());
+        paramsMapRepo.insertNewReg(map.getInputDeviceId(), map.getUnitInputId(), map.getRw(), map.getIndex(), map.getActive(), map.getDescription());
 
         log.info("Adding new register:".concat(r.toString()));
 
         //ponowne pobranie aktualnej listy
-        List<ParamsMap> parametry = paramsMapRepo.findAll();
+        List<ParamsMap> parameters = paramsMapRepo.findAll();
 
-        model.addAttribute(PARAMS, parametry);
+        model.addAttribute(PARAMS, parameters);
 
         return new ModelAndView("redirect:/registers", "command", new NewRegister());
     }

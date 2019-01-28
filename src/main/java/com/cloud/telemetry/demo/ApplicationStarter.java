@@ -8,12 +8,12 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 @SpringBootApplication
 @EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 
-public class DemoApplication {
+public class ApplicationStarter {
 
 
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(ApplicationStarter.class, args);
 
 
 
