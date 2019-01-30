@@ -1,21 +1,24 @@
 package com.cloud.telemetry.demo;
+
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+@Slf4j
 class StatsCalculator {
 
-    protected final Logger logger = Logger.getLogger(getClass().getName());
 
     private double freeRAM;
     private double maxRAM;
-
+    private double mega = 1048576;
     private int numCores;
 
     public StatsCalculator() {
         calculateStats();
     }
 
-    public void calculateStats() {
+    void calculateStats() {
         numCores = Runtime.getRuntime().availableProcessors();
         freeRAM = Runtime.getRuntime().freeMemory();
         maxRAM = Runtime.getRuntime().maxMemory();
@@ -36,12 +39,15 @@ class StatsCalculator {
     }
 
 
-
     public void printStats() {
-        logger.log(Level.INFO,"---------------------");
-        logger.log(Level.INFO,"NumCores: {0} " , numCores);
-        logger.log(Level.INFO,"FreeRAM: {0}" , freeRAM);
-        logger.log(Level.INFO,"Used RAM: {0} " , (maxRAM-freeRAM));
-        logger.log(Level.INFO,"---------------------");
+        log.info("---------------------");
+        log.info("NumCores: {} ", numCores);
+        log.info("FreeRAM: {}", freeRAM / mega);
+        log.info("Used RAM:  {}", ((maxRAM - freeRAM) / mega));
+        log.info( "---------------------");
+    }
+
+    double getMega() {
+        return mega;
     }
 }

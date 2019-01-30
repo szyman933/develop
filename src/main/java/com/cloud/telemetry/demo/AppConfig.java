@@ -23,11 +23,10 @@ public class AppConfig {
     private static String password;
 
     private static Properties prop = new Properties();
-    private static InputStream input = null;
 
     static {
         try {
-            input = new FileInputStream("src/main/resources/db.properties");
+            InputStream input = new FileInputStream("src/main/resources/db.properties");
             prop.load(input);
             url = prop.getProperty("url");
             user = prop.getProperty("login");

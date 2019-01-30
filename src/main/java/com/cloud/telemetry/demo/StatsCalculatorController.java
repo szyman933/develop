@@ -11,12 +11,11 @@ public class StatsCalculatorController {
     @RequestMapping("/stats")
     public String index(Model model) {
 
-
         StatsCalculator statsCalculator= new StatsCalculator();
         statsCalculator.calculateStats();
         statsCalculator.printStats();
-        double max=statsCalculator.getMaxRAM();
-        double mem=statsCalculator.getFreeRAM();
+        double max=statsCalculator.getMaxRAM() / statsCalculator.getMega();
+        double mem=statsCalculator.getFreeRAM() / statsCalculator.getMega();
         int core=statsCalculator.getNumCores();
         model.addAttribute("core", core);
         model.addAttribute("memmax", max);
