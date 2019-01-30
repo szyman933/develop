@@ -11,7 +11,7 @@ import java.util.List;
 public interface ReadingsRepo extends JpaRepository <Readings, Long> {
 
     @Transactional
-    @Query("SELECT r FROM Readings r WHERE r.UnitId = :unitId")
+    @Query("SELECT r FROM Readings r WHERE r.unitId = :unitId")
     List<Readings> getByUnit(@Param("unitId") Integer unitId);
 
     @Transactional
@@ -24,7 +24,7 @@ public interface ReadingsRepo extends JpaRepository <Readings, Long> {
 
 
     @Transactional
-    @Query("SELECT r FROM Readings r WHERE r.UnitId = :unit_id AND r.UnitInputId = :unitInputId")
-    List<Readings> getReadByUnitAndInput(@Param("unit_id") Integer unit_id, @Param("unitInputId") Integer unit_input_id);
+    @Query("SELECT r FROM Readings r WHERE r.unitId = :unit_id AND r.unitInputId = :unitInputId")
+    List<Readings> getReadByUnitAndInput(@Param("unit_id") Integer unitId, @Param("unitInputId") Integer unitInputId);
 
 }

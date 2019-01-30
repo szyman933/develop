@@ -1,5 +1,6 @@
 package com.cloud.telemetry.demo;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -11,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+@Slf4j
 @Configuration
 @EnableJpaRepositories(basePackages = "com.cloud.telemetry.demo")
 
@@ -20,19 +22,20 @@ public class AppConfig {
     private static String user;
     private static String password;
 
-    public static Properties prop = new Properties();
-    static InputStream input = null;
+    private static Properties prop = new Properties();
+    private static InputStream input = null;
 
     static {
         try {
-            input = new FileInputStream("db.properties");
+            input = new FileInputStream("src/main/resources/db.properties");
             prop.load(input);
             url = prop.getProperty("url");
             user = prop.getProperty("login");
             password = prop.getProperty("password");
+            input.close();
 
         } catch (IOException ex) {
-            ex.printStackTrace();
+            log.error("Can't find or open a file ", ex);
         }
     }
 

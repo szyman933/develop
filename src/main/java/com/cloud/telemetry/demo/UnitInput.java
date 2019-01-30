@@ -21,13 +21,13 @@ public class UnitInput implements Serializable {
     private Long id;
 
     @Column(name = "unitNetIdent")
-    private Integer UnitNetIdent;
+    private Integer unitNetIdent;
 
     @Column(name = "input_type_id")
-    private Integer InputTypeID;
+    private Integer inputTypeID;
 
     @Column(name = "input_number")
-    private Integer InputNumber;
+    private Integer inputNumber;
 
 
 }

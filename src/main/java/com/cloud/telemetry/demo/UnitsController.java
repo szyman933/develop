@@ -17,8 +17,8 @@ public class UnitsController {
     @RequestMapping("/units")
     public String index(Model model) {
 
-        List<Units> unity = unitRepo.getUnits();
-        model.addAttribute("listaUnit", unity);
+        List<Units> units = unitRepo.getUnits();
+        model.addAttribute("listaUnit", units);
 
         return "units";
     }

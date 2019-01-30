@@ -6,10 +6,11 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 
 @Repository
-interface ParamsMapRepo  extends JpaRepository<ParamsMap,Long> {
+interface ParamsMapRepo extends JpaRepository<ParamsMap, Long> {
 
     @Transactional
     @Query(value = "SELECT * FROM params_map where active='y'", nativeQuery = true)
@@ -36,12 +37,12 @@ interface ParamsMapRepo  extends JpaRepository<ParamsMap,Long> {
 
     @Transactional
     @Modifying
-    @Query(value = "update params_map u set u.active = ? where u.index = ?",nativeQuery = true)
+    @Query(value = "update params_map u set u.active = ? where u.index = ?", nativeQuery = true)
     int updateActivebyIndexNative(String active, Integer index);
 
     @Transactional
     @Modifying
-    @Query(value = "insert into params_map (id, input_device_id, unit_input_id, rw, `index`, active, description) VALUES(0, ?, ?, ?, ?, ?, ?)",nativeQuery = true)
+    @Query(value = "insert into params_map (id, input_device_id, unit_input_id, rw, `index`, active, description) VALUES(0, ?, ?, ?, ?, ?, ?)", nativeQuery = true)
     int insertNewReg(Integer idi, Integer uid, String rw, Integer index, String active, String description);
 
 

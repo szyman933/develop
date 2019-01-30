@@ -3,8 +3,8 @@ package com.cloud.telemetry.demo;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import java.sql.Timestamp;
+
 @NoArgsConstructor
 @Setter
 @Getter

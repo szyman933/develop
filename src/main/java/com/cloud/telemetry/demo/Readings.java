@@ -8,7 +8,7 @@ import java.sql.Timestamp;
 @Entity
 @Setter
 @Getter
-@Table( name = "readings")
+@Table(name = "readings")
 @ToString
 @NoArgsConstructor
 @EqualsAndHashCode
@@ -19,18 +19,18 @@ class Readings implements Serializable {
     private Long id;
 
     @Column(name = "unit_id")
-    private Integer UnitId;
+    private Integer unitId;
 
     @Column(name = "unitInputId")
-    private Integer UnitInputId;
+    private Integer unitInputId;
 
     @Column(name = "value")
-    private Integer Value;
+    private Integer value;
 
     @Column(name = "read_date")
-    private Timestamp ReadDate;
+    private Timestamp readDate;
 
     @Column(name = "param_id")
-    private Integer Param_id;
+    private Integer paramId;
 
 }
