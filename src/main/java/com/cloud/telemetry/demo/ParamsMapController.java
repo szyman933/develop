@@ -6,10 +6,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
 import java.util.List;
+
 import static java.sql.Types.NULL;
 
 
@@ -17,7 +20,7 @@ import static java.sql.Types.NULL;
 @Controller
 public class ParamsMapController {
 
-    private final static String PARAMS = "params";
+    private static String PARAMS = "params";
 
 
     @Autowired
@@ -36,7 +39,7 @@ public class ParamsMapController {
     }
 
 
-    @RequestMapping(value = "/updateActive", method = {RequestMethod.POST})
+    @PostMapping(value = "/updateActive")
     public String updateParamMap(Model model, @Validated NewRegister mapa, BindingResult bindingResult) {
 
         ParamsMap r = new ParamsMap();
@@ -63,7 +66,7 @@ public class ParamsMapController {
     }
 
 
-    @RequestMapping(value = "/addRegister", method = {RequestMethod.POST})
+    @PostMapping(value = "/addRegister")
     public ModelAndView addRegister(Model model, NewRegister map) {
 
         ParamsMap r = new ParamsMap();

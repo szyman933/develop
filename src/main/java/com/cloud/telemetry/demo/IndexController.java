@@ -18,12 +18,12 @@ public class IndexController {
     @RequestMapping("/")
     public String index(Model model) {
 
-        List<Readings> readingsList = readingsRepo.getLatestTenCorrect();
-        List<Integer> valueList = new ArrayList(); //lista na wartosci odczytu
-        List<String> dataList = new ArrayList();//lista na daty odczytu
+        List<Reading> readingsList = readingsRepo.getLatestTenCorrect();
+        List<Integer> valueList = new ArrayList<>(); //lista na wartosci odczytu
+        List<String> dataList = new ArrayList<>();//lista na daty odczytu
 
         //petla iteracyjna wypelniająca modele danymi
-        for (Readings readings : readingsList) {
+        for (Reading readings : readingsList) {
             valueList.add(readings.getValue());
             dataList.add(readings.getReadDate().toString());
         }

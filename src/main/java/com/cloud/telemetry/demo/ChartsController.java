@@ -31,7 +31,7 @@ public class ChartsController {
     public ModelAndView charts(Model model) {
 
         //wypenienie listy dostepnych urządzen
-        List<Units> units = unitRepo.findAll();
+        List<Unit> units = unitRepo.findAll();
         model.addAttribute(LISTUNIT, units);
         return new ModelAndView(VIEWMODEL, MODELNAME, new Chart());
     }
@@ -43,7 +43,7 @@ public class ChartsController {
         //wypelnienie listy wejsc wybranego urzadzenia
         modul = chart.getNetIdent();
         List<UnitInput> inputs = unitInputRepo.getByUnit(chart.getNetIdent());
-        List<Units> units = unitRepo.getByUnit(modul);
+        List<Unit> units = unitRepo.getByUnit(modul);
         model.addAttribute(LISTUNIT, units);
         model.addAttribute("listaInput", inputs);
 
@@ -53,8 +53,8 @@ public class ChartsController {
     @RequestMapping(value = "/chartinput", method = {RequestMethod.POST, RequestMethod.GET})
     public ModelAndView chartsfeed(Model model, Chart chart) {
         //listy do wypelnienia danymi z odczytow
-        List<Integer> values = new ArrayList(); //lista na wartosci odczytu
-        List<String> labels = new ArrayList();//lista na daty odczytu
+        List<Integer> values = new ArrayList<>(); //lista na wartosci odczytu
+        List<String> labels = new ArrayList<>();//lista na daty odczytu
 
         //pobranie z unit_input numeru urzadzenia i jego id wejscia
         if (modul == null || chart.getInputNumber() == null) {
@@ -64,12 +64,14 @@ public class ChartsController {
 
             List<UnitInput> unitInput = unitInputRepo.getByUnitAndInput(modul, chart.getInputNumber());
             UnitInput chosen = unitInput.get(0);
+            Integer inputId = Math.toIntExact(chosen.getId());
 
             //pobranie odczytow dla danego urzadzenia o danym wejsciu
-            List<Readings> readingsList = readingsRepo.getReadByUnitAndInput(chosen.getUnitNetIdent(), Math.toIntExact(chosen.getId()));
+            List<Reading> readingsList = readingsRepo.getReadByUnitAndInput(chosen.getUnitNetIdent(), inputId);
+
 
             //petla iteracyjna wypelniająca modele danymi
-            for (Readings readings : readingsList) {
+            for (Reading readings : readingsList) {
                 values.add(readings.getValue());
                 labels.add(readings.getReadDate().toString());
             }
@@ -78,7 +80,7 @@ public class ChartsController {
         model.addAttribute("labels", labels);
 
         //napelnienie listy unitow od nowa zeby nie musiec przeladowywac strony zeby wybrac inny modul
-        List<Units> units = unitRepo.findAll();
+        List<Unit> units = unitRepo.findAll();
         model.addAttribute(LISTUNIT, units);
 
         return new ModelAndView(VIEWMODEL, MODELNAME, new Chart());

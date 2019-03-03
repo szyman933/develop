@@ -13,7 +13,7 @@ import java.sql.Timestamp;
 @ToString
 @NoArgsConstructor
 @EqualsAndHashCode
-class Units implements Serializable {
+class Unit implements Serializable {
 
 
     @Id

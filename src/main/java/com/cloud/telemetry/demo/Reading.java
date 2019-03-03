@@ -12,7 +12,7 @@ import java.sql.Timestamp;
 @ToString
 @NoArgsConstructor
 @EqualsAndHashCode
-class Readings implements Serializable {
+class Reading implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,7 +21,7 @@ class Readings implements Serializable {
     @Column(name = "unit_id")
     private Integer unitId;
 
-    @Column(name = "unitInputId")
+    @Column(name = "unit_input_id")
     private Integer unitInputId;
 
     @Column(name = "value")

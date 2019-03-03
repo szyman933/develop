@@ -9,15 +9,15 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Repository
-public interface UnitRepo extends JpaRepository<Units, Long> {
+public interface UnitRepo extends JpaRepository<Unit, Long> {
 
 
     @Transactional
     @Query(value = "SELECT * FROM unit", nativeQuery = true)
-    List<Units> getUnits();
+    List<Unit> getUnits();
 
     @Transactional
-    @Query("SELECT r FROM Units r WHERE r.netIdent = :netIdent")
-    List<Units> getByUnit(@Param("netIdent") Integer netIdent);
+    @Query("SELECT r FROM Unit r WHERE r.netIdent = :netIdent")
+    List<Unit> getByUnit(@Param("netIdent") Integer netIdent);
 
 }

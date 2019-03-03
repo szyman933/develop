@@ -36,7 +36,7 @@ public class RequestTypeController {
         List<UnitRequest> requesty = unitRequestRepo.getNew10Req();
         model.addAttribute("listaRequestow", requesty);
 
-        List<Units> unity = unitRepo.getUnits();
+        List<Unit> unity = unitRepo.getUnits();
         model.addAttribute("listaUnitow", unity);
 
         return new ModelAndView("request", "command", new NewRequest());
@@ -53,7 +53,7 @@ public class RequestTypeController {
         r.setUnitNetIdent(polecenie.getUnitNetIdent());
         r.setRequestType(polecenie.getRequestType());
         r.setRegDate(timestamp);
-        r.setUnitInputId(polecenie.getUnitInputId());
+        r.setUnitInputNumber(polecenie.getUnitInputId());
         r.setValue(polecenie.getValue());
         r.setRegister(polecenie.getRegister());
         log.info("Add new request ".concat(r.toString()));
@@ -67,7 +67,7 @@ public class RequestTypeController {
         List<RequestType> requestype = requestTypeRepo.getAllTypeReq();
         model.addAttribute("listaTypow", requestype);
 
-        List<Units> unity = unitRepo.getUnits();
+        List<Unit> unity = unitRepo.getUnits();
         model.addAttribute("listaUnitow", unity);
 
         return new ModelAndView("redirect:/request", "command", new NewRequest());
