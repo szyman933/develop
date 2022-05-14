@@ -1,11 +1,13 @@
-# Telemetry
+# Telemetry Monitoring Center 
 
-This application is GUI for telemetry system.
+This is a GUI application for telemetry system.
 
 ## Built With
 
-* [IntelliJ](https://www.jetbrains.com/idea/) - The framework used
+* [IntelliJ](https://www.jetbrains.com/idea/) - IDE
 * [Maven](https://maven.apache.org/) - Dependency Management
+* [MySQL](https://www.mysql.com/) - Database
+* [Spring](https://spring.io/) - Spring framework
 
 
 ## Authors
