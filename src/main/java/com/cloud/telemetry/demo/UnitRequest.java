@@ -30,8 +30,8 @@ public class UnitRequest implements Serializable {
     @Column(name = "send_date")
     private Timestamp sendDate;
 
-    @Column(name = "unit_input_number")
-    private Integer unitInputNumber;
+    @Column(name = "unit_input_id")
+    private Integer unitInputId;
 
     @Column(name = "value")
     private Integer value;

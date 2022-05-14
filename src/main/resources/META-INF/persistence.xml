@@ -9,14 +9,7 @@
         <provider>com.objectdb.jpa.Provider</provider>
         <mapping-file>META-INF/mappingFile.xml</mapping-file>
         <jar-file>packedEntity.jar</jar-file>
-        <!--<class>sample.MyEntity1</class>
-        <class>sample.MyEntity2</class>-->
-        <!--<properties>
-            <property name="javax.persistence.jdbc.url"
-                      value="objectdb://192.168.1.112:3306/daniel.odb"/>
-            <property name="javax.persistence.jdbc.user" value="daniel"/>
-            <property name="javax.persistence.jdbc.password" value="daniel"/>
-        </properties>-->
+
     </persistence-unit>
 
 </persistence>

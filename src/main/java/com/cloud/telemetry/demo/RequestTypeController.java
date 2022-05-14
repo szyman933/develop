@@ -53,7 +53,7 @@ public class RequestTypeController {
         r.setUnitNetIdent(polecenie.getUnitNetIdent());
         r.setRequestType(polecenie.getRequestType());
         r.setRegDate(timestamp);
-        r.setUnitInputNumber(polecenie.getUnitInputId());
+        r.setUnitInputId(polecenie.getUnitInputId());
         r.setValue(polecenie.getValue());
         r.setRegister(polecenie.getRegister());
         log.info("Add new request ".concat(r.toString()));

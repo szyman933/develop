@@ -19,10 +19,10 @@ public class IndexController {
     public String index(Model model) {
 
         List<Reading> readingsList = readingsRepo.getLatestTenCorrect();
-        List<Integer> valueList = new ArrayList<>(); //lista na wartosci odczytu
-        List<String> dataList = new ArrayList<>();//lista na daty odczytu
+        List<Integer> valueList = new ArrayList<>();
+        List<String> dataList = new ArrayList<>();
 
-        //petla iteracyjna wypelniająca modele danymi
+
         for (Reading readings : readingsList) {
             valueList.add(readings.getValue());
             dataList.add(readings.getReadDate().toString());

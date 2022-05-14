@@ -26,8 +26,6 @@ public class ParamsMapController {
     @Autowired
     ParamsMapRepo paramsMapRepo;
 
-
-    // przekazanie listy parametrow
     @RequestMapping(value = "/registers", method = {RequestMethod.GET, RequestMethod.POST})
     public String registers(Model model) {
 
@@ -57,7 +55,6 @@ public class ParamsMapController {
             paramsMapRepo.updateActivebyIndexNative(mapa.getActive(), mapa.getIndex());
         }
 
-        //ponowne pobranie aktualnej listy
         List<ParamsMap> parametry = paramsMapRepo.findAll();
 
         model.addAttribute(PARAMS, parametry);
@@ -81,7 +78,6 @@ public class ParamsMapController {
 
         log.info("Adding new register:".concat(r.toString()));
 
-        //ponowne pobranie aktualnej listy
         List<ParamsMap> parameters = paramsMapRepo.findAll();
 
         model.addAttribute(PARAMS, parameters);

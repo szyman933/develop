@@ -34,7 +34,6 @@ interface ParamsMapRepo extends JpaRepository<ParamsMap, Long> {
     @Query("UPDATE ParamsMap r SET r.active = :active WHERE r.index = :index ")
     int updateActivebyIndex(@Param("index") Integer index, @Param("active") String active);
 
-
     @Transactional
     @Modifying
     @Query(value = "update params_map u set u.active = ? where u.index = ?", nativeQuery = true)

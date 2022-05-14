@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +31,6 @@ public class ChartsController {
     @RequestMapping("/charts")
     public ModelAndView charts(Model model) {
 
-        //wypenienie listy dostepnych urządzen
         List<Unit> units = unitRepo.findAll();
         model.addAttribute(LISTUNIT, units);
         return new ModelAndView(VIEWMODEL, MODELNAME, new Chart());
@@ -40,7 +40,6 @@ public class ChartsController {
     @RequestMapping(value = "/chartunit", method = {RequestMethod.POST, RequestMethod.GET})
     public ModelAndView charts(Model model, Chart chart) {
 
-        //wypelnienie listy wejsc wybranego urzadzenia
         modul = chart.getNetIdent();
         List<UnitInput> inputs = unitInputRepo.getByUnit(chart.getNetIdent());
         List<Unit> units = unitRepo.getByUnit(modul);
@@ -52,13 +51,12 @@ public class ChartsController {
 
     @RequestMapping(value = "/chartinput", method = {RequestMethod.POST, RequestMethod.GET})
     public ModelAndView chartsfeed(Model model, Chart chart) {
-        //listy do wypelnienia danymi z odczytow
-        List<Integer> values = new ArrayList<>(); //lista na wartosci odczytu
-        List<String> labels = new ArrayList<>();//lista na daty odczytu
 
-        //pobranie z unit_input numeru urzadzenia i jego id wejscia
+        List<Integer> values = new ArrayList<>();
+        List<String> labels = new ArrayList<>();
+
         if (modul == null || chart.getInputNumber() == null) {
-            //idioto odpornosc na niewypelniony formularz, przekierowanie do bazowej strony charts
+
             return new ModelAndView("redirect:/charts");
         } else {
 
@@ -66,20 +64,16 @@ public class ChartsController {
             UnitInput chosen = unitInput.get(0);
             Integer inputId = Math.toIntExact(chosen.getId());
 
-            //pobranie odczytow dla danego urzadzenia o danym wejsciu
             List<Reading> readingsList = readingsRepo.getReadByUnitAndInput(chosen.getUnitNetIdent(), inputId);
 
-
-            //petla iteracyjna wypelniająca modele danymi
             for (Reading readings : readingsList) {
                 values.add(readings.getValue());
                 labels.add(readings.getReadDate().toString());
             }
-        } //koniec if elsa na sprawdzanie czy values z formularzy sa wypelnione
+        }
         model.addAttribute("values", values);
         model.addAttribute("labels", labels);
 
-        //napelnienie listy unitow od nowa zeby nie musiec przeladowywac strony zeby wybrac inny modul
         List<Unit> units = unitRepo.findAll();
         model.addAttribute(LISTUNIT, units);
 
