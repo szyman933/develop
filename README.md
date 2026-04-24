@@ -17,9 +17,9 @@ This is a GUI application for telemetry system which was subject of my master th
 
 
 ### Instalation 
-* Install Java 8 and set environment variables
-* Install MySQL Database in version 8.0.29
+* Install Java 17 and set environment variables
+* Install MySQL Database in version 8
 * Restore database from dump attached to project [dump](src/main/resources/db_dump)
 * Create db user and fill settings in [application.properties](src/main/resources/application.properties)
 * Download project sources and build with maven
-* Run target/demo-1.0.7-SNAPSHOT.jar
+
