@@ -1,18 +1,18 @@
 package com.cloud.telemetry.demo;
 
+
 import lombok.*;
-import javax.persistence.*;
+
+import jakarta.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
 @Entity
-@Setter
-@Getter
 @Table(name = "readings")
 @ToString
 @NoArgsConstructor
 @EqualsAndHashCode
-class Reading implements Serializable {
+public class Reading implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,4 +33,53 @@ class Reading implements Serializable {
     @Column(name = "param_id")
     private Integer paramId;
 
+
+    public Long getId() {
+        return id;
+    }
+
+    public Integer getUnitId() {
+        return unitId;
+    }
+
+    public Integer getUnitInputId() {
+        return unitInputId;
+    }
+
+    public Integer getValue() {
+        return value;
+    }
+
+    public Timestamp getReadDate() {
+        return readDate;
+    }
+
+    public Integer getParamId() {
+        return paramId;
+    }
+
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setUnitId(Integer unitId) {
+        this.unitId = unitId;
+    }
+
+    public void setUnitInputId(Integer unitInputId) {
+        this.unitInputId = unitInputId;
+    }
+
+    public void setValue(Integer value) {
+        this.value = value;
+    }
+
+    public void setReadDate(Timestamp readDate) {
+        this.readDate = readDate;
+    }
+
+    public void setParamId(Integer paramId) {
+        this.paramId = paramId;
+    }
 }

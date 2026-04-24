@@ -24,6 +24,7 @@ public class IndexController {
 
 
         for (Reading readings : readingsList) {
+
             valueList.add(readings.getValue());
             dataList.add(readings.getReadDate().toString());
         }

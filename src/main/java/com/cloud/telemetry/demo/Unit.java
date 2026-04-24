@@ -2,7 +2,7 @@ package com.cloud.telemetry.demo;
 
 import lombok.*;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
@@ -13,7 +13,7 @@ import java.sql.Timestamp;
 @ToString
 @NoArgsConstructor
 @EqualsAndHashCode
-class Unit implements Serializable {
+public class Unit implements Serializable {
 
 
     @Id

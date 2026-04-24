@@ -2,7 +2,7 @@ package com.cloud.telemetry.demo;
 
 import lombok.*;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -12,7 +12,7 @@ import java.io.Serializable;
 @ToString
 @NoArgsConstructor
 @EqualsAndHashCode
-class RequestType implements Serializable {
+public class RequestType implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

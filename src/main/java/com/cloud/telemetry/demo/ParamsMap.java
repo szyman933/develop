@@ -1,7 +1,7 @@
 package com.cloud.telemetry.demo;
 
 import lombok.*;
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -11,7 +11,7 @@ import java.io.Serializable;
 @ToString
 @NoArgsConstructor
 @EqualsAndHashCode
-class ParamsMap implements Serializable {
+public class ParamsMap implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,7 +26,7 @@ class ParamsMap implements Serializable {
     @Column(name = "rw")
     private String rw;
 
-    @Column(name = "index")
+    @Column(name = "`index`")
     private Integer index;
 
     @Column(name = "active")
